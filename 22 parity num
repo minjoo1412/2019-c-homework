@@ -1,0 +1,49 @@
+#include <iostream>
+#include <cmath>
+
+using namespace std;
+
+void parity();
+
+int main() {
+	int k;
+	cin >> k;
+	for (int i = 0; i < k; i++) {
+		parity();
+	}
+
+}
+
+
+
+void parity() {
+	long long num;
+	cin >> num;
+
+	int a[32] = { 0 };
+
+	for (int i = 30; i >= 0; i--) {
+		if (num >= pow(2,i)) {
+			a[i] =1;
+			num -= pow(2, i);
+		}
+	}
+
+	int num2 = 0;
+	for (int i = 0; i < 31; i++) {
+		num2 += a[i];
+	}
+
+	if ((num2 % 2) == 1) {
+		a[31] = 1;
+	}
+
+	long long sum = 0;
+	for (int i = 0; i < 32; i++) {
+		if (a[i] == 1) {
+			sum += pow(2, i);
+		}
+	}
+	cout << sum << endl;
+	return;
+}
