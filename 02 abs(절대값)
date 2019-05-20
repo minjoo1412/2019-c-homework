@@ -1,0 +1,41 @@
+#include <iostream>
+#include <algorithm>
+using namespace std;
+
+int closestNumber(int n, int m);
+
+int main(void) {
+	int n, m, t;
+	cin >> t;
+
+	for (int i = 0; i < t; i++) {
+		cin >> n >> m;
+		cout << closestNumber(n, m) << endl;
+	}
+
+	return 0;
+}
+
+int closestNumber(int n, int m) {
+	int a;
+	if (n%m == 0)return n;
+
+	if (n > 0) {
+		a = n % m;
+		if ((2 * a) >= abs(m)) {
+			return abs(m) - a + n;
+		}
+		else if ((2 * a) < abs(m)) {
+			return n - a;
+		}
+	}
+	if (n < 0) {
+		a = abs(n % m);
+		if ((2 * a) >= abs(m)) {
+			return n + a - abs(m);
+		}
+		else if ((2 * a) < abs(m)) {
+			return n + a;
+		}
+	}
+}
