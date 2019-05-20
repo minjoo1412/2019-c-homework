@@ -1,0 +1,49 @@
+#include <iostream>
+using namespace std;
+
+int testInclusion(int n);
+int divid(long input, int number);
+
+int main(void){
+	int t;
+	cin >> t;
+	int n;
+	for (int i = 0; i < t; i++){
+		cin >> n;
+		cout << testInclusion(n) << endl;
+	}
+	return 0;
+}
+
+int testInclusion(int n){
+	int result = 0;
+	int two = 0;
+	int five = 0;
+	long input;
+	int o = 0;
+	int m = 0;
+
+
+	for (int i = 0; i < n; i++) {
+		cin >> input;
+		o += divid(input, 2);
+		m += divid(input, 5);
+	}
+
+	if (o >= m) {
+		return m;
+	}
+	else {
+		return o;
+	}
+	
+}
+
+int divid(long input, int number) {
+	int n = 0;
+	while (input % number == 0) {
+		input = input / number;
+		n++;
+	}
+	return n;
+}
