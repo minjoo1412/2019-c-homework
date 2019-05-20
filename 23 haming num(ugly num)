@@ -1,0 +1,65 @@
+#include <iostream>
+
+using namespace std;
+
+void haming();
+
+int main() {
+	int k;
+	cin >> k;
+	for (int i = 0; i < k; i++) {
+		haming();
+	}
+
+}
+
+void haming() {
+	int num;
+	cin >> num;
+
+	long long *count = new long long[num];
+	int n = 0;
+	long long sum;
+	int a = 2;
+	int b = 3;
+	int c = 5;
+	int i = 0;
+	int j = 0;
+	int k = 0;
+	count[0] = 1;
+	while (true) {
+		n++;
+		if (n == num) {
+			break;
+		}
+		if (a > b) {
+			if (b > c) {sum = c;}
+			else {sum = b;}
+		}
+		else {
+			if (a > c) { sum = c;}
+			else {sum = a;}
+		}
+
+		count[n] = sum;
+		
+		if (sum == a)
+		{
+			i++;
+			a = count[i] * 2;
+		}
+		if (sum == b)
+		{
+			j++;
+			b = count[j] * 3;
+		}
+		if(sum == c)
+		{
+			k++;
+			c = count[k] * 5;
+		}
+	
+	}
+
+	cout << count[num-1] << endl;
+}
