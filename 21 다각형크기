@@ -1,0 +1,50 @@
+#include <iostream>
+
+using namespace std;
+
+void manypoint();
+
+int main() {
+	int k;
+	cin >> k;
+
+	for (int i = 0; i < k; i++) {
+		manypoint();
+	}
+
+}
+
+void manypoint() {
+	int n;
+	cin >> n;
+
+	int *xarray = new int[n];
+	int *yarray = new int[n];
+
+	for (int i = 0; i < n; i++) {
+		cin >> xarray[i] >> yarray[i];
+	}
+
+	int sum = 0;
+
+	for (int i = 0; i < n; i++) {
+		if (i == n - 1) {
+			sum += (xarray[i] + xarray[0])*(yarray[0] - yarray[i]);
+		}
+		else {
+			sum += (xarray[i] + xarray[i + 1])*(yarray[i+1]-yarray[i]);
+		}
+	}
+
+	if (sum == 0) {
+		cout << sum << " 0" << endl;
+	}
+	else if (sum < 0) {
+		cout << -1 * sum << " -1" << endl;
+	}
+	else {
+		cout << sum << " 1" << endl;
+	}
+	return;
+
+}
