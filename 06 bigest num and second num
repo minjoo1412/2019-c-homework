@@ -1,0 +1,41 @@
+#include <iostream>
+using namespace std;
+
+void twonum();
+
+int main() {
+	int t;
+	cin >> t;
+	int* array1 = new int[];
+
+	for (int i = 0; i < t; i++) {
+		twonum();
+	}
+
+	return 0;
+}
+
+void twonum() {
+	int a;
+	int m;
+	int n1 = 0;
+	int n2 = 0;
+	cin >> a;
+	for (int i = 0; i < a; i++){
+		cin >> m;
+			if (n1 < m) {
+				if (n2 > m) {
+				}
+				else {
+					n2 = n1;
+				}
+				n1 = m;
+
+			}else if (n2 <= m) {
+				n2 = m;
+			}
+	}
+
+	cout << (n1 - n2) << endl;
+	
+}
